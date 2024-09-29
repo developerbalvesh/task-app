@@ -26,6 +26,10 @@ a:hover{
   color: #6422b8;
 }
 
+.vh-100{
+  height: 100vh;
+}
+
 .btn-primary{
   background-color: #6422b8;
   border-color: #6422b8;
@@ -49,7 +53,7 @@ a:hover{
 .pages{
   height: 100vh;
 
-  h1, h2, p{
+  h1, h2, h3, p{
     font-family: "Oleo Script", system-ui;
     color: #797979;
   }
@@ -121,4 +125,60 @@ a:hover{
     display: block;
   }
 
+}
+
+/* task list */
+.card{
+  position: relative;
+  /* position: relative; */
+
+  .block{
+    position: absolute;
+    background-color: #ffffff71;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    z-index: 1;
+    cursor: not-allowed;
+  }
+}
+
+/* login */
+
+.password{
+  position: relative;
+
+  input{
+    padding-right: 30px;
+  }
+
+  i{
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    cursor: pointer;
+  }
+}
+
+.spinner{
+  height: 20px;
+  width: 20px;
+  margin: 0 auto;
+  border-radius: 100px;
+  animation: 2s infinite spinner;
+  border: 5px dotted #fff;
+  position: relative;
+  /* background-color: #fff; */
+}
+
+@keyframes spinner {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+  
 }

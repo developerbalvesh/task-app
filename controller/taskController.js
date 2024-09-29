@@ -19,15 +19,6 @@ const addTaskController = async (req, res) => {
       });
     }
 
-    const exists = await taskModel.findOne({ title });
-
-    if (exists) {
-      return res.status(500).send({
-        success: false,
-        message: "Title must be unque",
-      });
-    }
-
     const task = await new taskModel({
       user,
       title,
@@ -113,8 +104,39 @@ const deleteTaskController = async (req, res) => {
   }
 };
 
+// get all tasks
+const getAllTasksController = async(req, res)=>{
+  try {
+    const tasks = await taskModel.find({user:req.user._id});
+
+    if(tasks){
+      res.status(200).send({
+        success:true,
+        message:'fetched',
+        tasks
+      })
+    }else{
+      res.status(400).send({
+        success:false,
+        message:'no data found'
+      })
+    }
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      error,
+      success:false,
+      message:'Internal error'
+    })
+  }
+}
+
 module.exports = {
   addTaskController,
   updateTaskController,
   deleteTaskController,
+  getAllTasksController
 };
+
+

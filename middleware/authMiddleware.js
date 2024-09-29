@@ -5,6 +5,7 @@ const userModel = require("../models/userModel");
 const requireSignIn = async (req, res, next) => {
   try {
     const auth = req.headers.authorization;
+    // const auth = req.body.token;
     if(!auth){
         return res.status(400).send({
             success:false,
@@ -12,7 +13,6 @@ const requireSignIn = async (req, res, next) => {
         })
     }
     const decode = JWT.verify(auth, process.env.JWT_SECRET);
-    console.log(decode)
     if (!decode) {
       return res.status(500).send({
         success: false,

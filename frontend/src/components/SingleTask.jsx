@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SingleTask = () => {
+const SingleTask = ({ title, isDone, description, id, handleDone }) => {
+
+  const [done, setDone]=useState(false);
+
   return (
     <>
-      <div className="col-lg-6">
-        <div className="card text-bg-light mb-3">
+      <div className={`col-lg-6`}>
+        <div className={done?`card text-bg-light mb-3 animate__animated animate__hinge`:`card text-bg-light mb-3`}>
           <div className="card-header">
-            <h5 className="card-title">Title Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, doloribus.</h5>
+            <h5 className="card-title">{title}</h5>
           </div>
           <div className="card-body text-center">
-            <p className="card-text overflow-auto text-start">
-              Lorem ipsum   
-            </p>
-            <button className="w-50 btn btn-secondary">Done</button>
+            <p className="card-text overflow-auto text-start">{description}</p>
+            <button
+              className="w-50 btn btn-secondary"
+              onClick={() => {
+                handleDone(id);
+                // setDone(true)
+              }}
+            >
+              Done
+            </button>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ const {
   addTaskController,
   updateTaskController,
   deleteTaskController,
+  getAllTasksController,
 } = require("../controller/taskController");
 
 const router = express.Router();
@@ -18,5 +19,8 @@ router.put("/update-task/:id", requireSignIn, updateTaskController);
 
 // delete task
 router.delete("/delete-task/:id", requireSignIn, deleteTaskController);
+
+// get-tasks
+router.post('/tasks', requireSignIn, getAllTasksController )
 
 module.exports = router;
