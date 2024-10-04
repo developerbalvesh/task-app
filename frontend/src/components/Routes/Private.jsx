@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { useAuth } from "../../context/Auth";
 import axios from "axios";
+import Spinner from "../Spinner";
 
 export default function PrivateRoute() {
   const [auth, setAuth] = useAuth();
@@ -22,5 +23,5 @@ export default function PrivateRoute() {
     };
     if (auth?.token) authCheck();
   }, [auth?.token]);
-  return ok ? <Outlet /> : "Spinner";
+  return ok ? <Outlet /> : <Spinner />;
 }

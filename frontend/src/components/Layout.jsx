@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../context/Auth";
 import axios from "axios";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const [nav, setNav] = useState(false);
@@ -162,6 +163,7 @@ const Layout = ({ children }) => {
           <i className="fa-solid fa-house"></i>
         </Link>
       </div>
+      <Footer />
     </>
   );
 };

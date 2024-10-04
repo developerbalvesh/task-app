@@ -167,7 +167,7 @@ a:hover{
   width: 20px;
   margin: 0 auto;
   border-radius: 100px;
-  animation: 2s infinite spinner;
+  animation: 2s infinite spinner linear;
   border: 5px dotted #fff;
   position: relative;
   /* background-color: #fff; */
@@ -175,10 +175,31 @@ a:hover{
 
 @keyframes spinner {
   0%{
+    border-color: #6422b8;
     transform: rotate(0deg);
   }
+  50%{
+    border-color: #fff;
+  }
   100%{
+    border-color: #6422b8;
     transform: rotate(360deg);
   }
   
+}
+
+/* footer */
+.footer{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+
+  a{
+    color: #333;
+    text-decoration: none;
+    font-style: none;
+    font-weight: bold;
+  }
 }

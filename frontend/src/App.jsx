@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import { useAuth } from "./context/Auth";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/Routes/Private";
+import Spinner from "./components/Spinner";
 
 function App() {
   const [auth, setAuth] = useAuth();
